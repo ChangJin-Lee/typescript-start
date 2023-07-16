@@ -2,7 +2,9 @@
 
 class User {
 
-    private _courseCount = 1
+    // private _courseCount = 1
+    protected _courseCount = 1
+
 
     public email: string
     private name: string
@@ -33,6 +35,17 @@ class User {
         this._courseCount = courseNum
     }
         
+}
+
+// 하위 사용자가 모든 속성을 획득해요.
+class SubUser extends User {
+    isFamily: boolean = true
+    changeCourseCount(){
+        // courseCount를 protected으로 바꾸면 접근 가능해요
+        // 보호되는 또 다른 유형이에요.
+        // 상속하는 모든 클래스에서만 사용 가능해요.
+        this._courseCount = 4
+    }
 }
 
 const hitesh2 = new User("h@h.com", "hitesh");
